@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -125,16 +126,17 @@ public class PostService {
         String url = baseUrl + postByPostId.replace("{postId}", postId.toString());
         log.info("Eliminando post con ID {} desde URL: {}", postId, url);
         try {
-            Post post = restTemplate.getForObject(url, Post.class);
-            if (post == null) {
-                log.info("Post con ID {} no encontrado", postId);
-                return ResponseEntity.notFound().build();
-            }
+            restTemplate.getForObject(url, Post.class);
+
             restTemplate.delete(url);
+
             log.info("Post con ID {} eliminado correctamente", postId);
             return ResponseEntity.noContent().build();
 
-        } catch (RestClientException e) {
+        } catch (HttpClientErrorException.NotFound e) {
+            log.info("Post con ID {} no encontrado para eliminar", postId);
+            return ResponseEntity.notFound().build();
+        }catch (RestClientException e) {
             log.error("Error eliminando post con ID {}: {}", postId, e.getMessage(), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
