@@ -11,7 +11,7 @@ _Asegurate de tener las siguientes herramientas, para este proyecto se usaron la
 - Maven 3.9.4
 - SpringBoout 3.5.6
 
-----
+
 ### Instalación 🔧
 
 _1) Clonar este repositorio_
@@ -27,7 +27,7 @@ _3) Ejecutar la aplicación_
 ```
 mvn spring-boot:run
 ```
-----
+
 ### 📚 Pruebas y documentación con Swagger 
 
 Este proyecto expone su documentación de API usando Swagger UI.
@@ -41,7 +41,7 @@ GET /api/posts
 
 Ejemplo
 ```
-curl 'http://localhost:8080/api/posts?page=2&size=8'
+curl -X GET 'http://localhost:8080/api/posts?page=2&size=8'
 ```
 Estructura de respuesta Body
 ```json
@@ -72,7 +72,7 @@ Estructura de respuesta Body
 
 ##### Eliminar un post por su id
 
-```
+```http
 DELETE /api/posts/{id}
 ```
 Ejemplo
@@ -84,7 +84,7 @@ Respuestas posibles:
 - 404 Not Found → No existe el post
 - 500 Internal Server Error → Error al llamar a la API externa
 
-----
+
 ### 🏗️ Descripción de la arquitectura 
 - Controller: Maneja solicitudes HTTP y devuelve respuestas JSON.
 
@@ -97,7 +97,7 @@ Respuestas posibles:
 ### 🛠️ Stack
 - Java 17 – Lenguaje de programación principal.
 
-- Maven → Gestión de dependencias y compilación del proyecto.
+- Maven 3.9.4 → Gestión de dependencias y compilación del proyecto.
 
 - Spring Boot 3.5.6  → Framework para desarrollo de aplicaciones RESTful.
 
