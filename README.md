@@ -69,7 +69,6 @@ Estructura de respuesta Body
 ]
 ```
 
-
 ##### Eliminar un post por su id
 
 ```http
@@ -99,12 +98,12 @@ Respuestas posibles:
 
 - Maven 3.9.4 → Gestión de dependencias y compilación del proyecto.
 
-- Spring Boot 3.5.6  → Framework para desarrollo de aplicaciones RESTful.
+- Spring Boot 3.5.6 → Framework para desarrollo de la API REST.
 
-- RestTemplate → Cliente HTTP para consumir APIs externas.
+- RestTemplate → Cliente HTTP para consumir API externa.
 
 - Springdoc OpenAPI / Swagger UI  → Documentación y pruebas de los endpoints.
 
 - Jackson / JSON → Serialización y deserialización de datos JSON.
 
-- Spring Web / Spring MVC  → Para la creación de endpoints REST.
+- Spring Web / Spring MVC  → Para la creación de endpoints.
